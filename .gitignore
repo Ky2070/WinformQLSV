@@ -1,0 +1,65 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cấu hình môi trường ảo (Virtual Environment)
+env/
+venv/
+ENV/
+ENV.bak/
+venv.bak/
+
+# Cấu hình IDE (PyCharm/JetBrains)
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Cấu hình Visual Studio
+.vs/
+*.csproj.user
+*.vcxproj.user
+*.suo
+*.user
+*.opendb
+*.VC.db
+
+# Cấu hình tệp hệ điều hành (Operating system files)
+.DS_Store
+Thumbs.db
+
+# Tệp nhật ký (Logs)
+*.log
+
+# Tệp cấu hình hệ thống (System settings files)
+*.ini
+*.cfg
+*.conf
+
+# Tệp tạm thời của editor
+*.swp
+*.swo
+
+# Tệp liên quan đến build
+build/
+dist/
+*.egg-info/
+
+# Tệp liên quan đến test
+coverage/
+htmlcov/
+.tox/
+
+# Tệp liên quan đến gói (Packaging)
+*.egg
+*.whl
+
+# Tệp liên quan đến cache (Cache files)
+*.bak
+*.tmp
+.cache/
+*.pickle
+
+# Tệp hoặc thư mục người dùng muốn thêm riêng biệt
+local_settings.py
