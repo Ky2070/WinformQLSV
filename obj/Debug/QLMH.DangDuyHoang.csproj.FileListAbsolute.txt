@@ -30,3 +30,4 @@ C:\Users\nguye\source\repos\DH\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.Dan.04AA1F2A.Up2Date
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.frm_Login.resources
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.frm_Signup.resources
+C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.frm_GV.resources

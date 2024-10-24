@@ -302,7 +302,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 185);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(450, 45);
-            this.panel3.TabIndex = 3;
+            this.panel3.TabIndex = 1;
             // 
             // usererror
             // 
@@ -324,7 +324,7 @@
             this.txtUsername.Location = new System.Drawing.Point(50, 15);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(370, 20);
-            this.txtUsername.TabIndex = 5;
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.Click += new System.EventHandler(this.txtUsername_Click);
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 

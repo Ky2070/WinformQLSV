@@ -48,6 +48,11 @@ namespace QLMH.DangDuyHoang
             panel3.BackColor = Color.White;
             panel4.BackColor = SystemColors.Control;
             txtPassword.BackColor = SystemColors.Control;
+            usererror.Visible= false;
+            if(txtPassword.Text == "")
+            {
+                passerror.Visible = true;
+            }
         }
 
         private void txtPassword_Click(object sender, EventArgs e)
@@ -56,6 +61,11 @@ namespace QLMH.DangDuyHoang
             txtPassword.BackColor = Color.White;
             txtUsername.BackColor = SystemColors.Control;
             panel3.BackColor = SystemColors.Control;
+            passerror.Visible= false;
+            if(txtUsername.Text == "")
+            {
+                usererror.Visible = true;
+            }
         }
 
         private void pictureBox4_MouseDown(object sender, MouseEventArgs e)

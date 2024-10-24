@@ -19,7 +19,7 @@ namespace QLMH.DangDuyHoang.Model
         [StringLength(15)]
         public string MaLop { get; set; }
 
-        [StringLength(15)]
+        [StringLength(100)]
         public string TenLop { get; set; }
 
         [Required]

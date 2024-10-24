@@ -48,6 +48,7 @@ namespace QLMH.DangDuyHoang
                 dgvBang.Rows[rowIndex].Cells[2].Value = mh.MaGV;   // Cập nhật thêm MaGV
                 dgvBang.Rows[rowIndex].Cells[3].Value = mh.MaPDG;  // Cập nhật thêm MaPDG
                 dgvBang.Rows[rowIndex].Cells[4].Value = mh.MaQLD; // Cập nhật thêm MaQLD
+                dgvBang.Rows[rowIndex].Cells[5].Value = mh.TrangThaiMH; // Cập nhật thêm MaQLD
             }
         }
 
@@ -153,25 +154,29 @@ namespace QLMH.DangDuyHoang
             }
         }
 
-        private void dgvBang_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Điền thông tin vào textbox khi chọn hàng trong DataGridView
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvBang.Rows[e.RowIndex];
-                txtMaMH.Text = row.Cells[0].Value.ToString();
-                txtTenMH.Text = row.Cells[1].Value.ToString();
-                txtMaGV.Text = row.Cells[2].Value.ToString();  // Thêm để lấy MaGV
-                txtMaPDG.Text = row.Cells[3].Value.ToString(); // Thêm để lấy MaPDG
-                txtMaQLD.Text = row.Cells[4].Value.ToString(); // Thêm để lấy MaQLD
-            }
-        }
-
         private void btnForm2_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             this.Close();
             form2.Show();
         }
+
+        private void dgvBang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra xem chỉ số hàng có hợp lệ không
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvBang.Rows[e.RowIndex];
+
+                // Kiểm tra và gán giá trị cho các TextBox, nếu ô trống thì xóa nội dung TextBox
+                txtMaMH.Text = row.Cells[0].Value?.ToString() ?? string.Empty;
+                txtTenMH.Text = row.Cells[1].Value?.ToString() ?? string.Empty;
+                txtMaGV.Text = row.Cells[2].Value?.ToString() ?? string.Empty;  // Lấy MaGV
+                txtMaPDG.Text = row.Cells[3].Value?.ToString() ?? string.Empty; // Lấy MaPDG
+                txtMaQLD.Text = row.Cells[4].Value?.ToString() ?? string.Empty; // Lấy MaQLD
+            }
+        }
+
+
     }
 }

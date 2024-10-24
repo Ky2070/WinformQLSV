@@ -67,6 +67,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_GV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_GV.Designer.cs">
+      <DependentUpon>frm_GV.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_GV.resx">
+      <DependentUpon>frm_GV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
@@ -148,5 +157,6 @@
   <ItemGroup>
     <None Include="Resources\security.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
