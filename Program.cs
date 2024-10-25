@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLMH.DangDuyHoang.Admin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace QLMH.DangDuyHoang
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_GV());
+            Application.Run(new frm_Login());
         }
     }
 }

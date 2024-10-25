@@ -33,5 +33,7 @@ namespace QLMH.DangDuyHoang.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sinh_Vien> Sinh_Vien { get; set; }
+
+
     }
 }

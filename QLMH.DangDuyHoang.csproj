@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\frm_TaiKhoanNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frm_TaiKhoanNguoiDung.Designer.cs">
+      <DependentUpon>frm_TaiKhoanNguoiDung.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,22 +73,22 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_GV.cs">
+    <Compile Include="Admin\frm_GV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_GV.Designer.cs">
+    <Compile Include="Admin\frm_GV.Designer.cs">
       <DependentUpon>frm_GV.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_Login.cs">
+    <Compile Include="Authentication\frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Login.Designer.cs">
+    <Compile Include="Authentication\frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_Signup.cs">
+    <Compile Include="Authentication\frm_Signup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Signup.Designer.cs">
+    <Compile Include="Authentication\frm_Signup.Designer.cs">
       <DependentUpon>frm_Signup.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ChiTietLuuDiem.cs" />
@@ -103,19 +109,28 @@
     <Compile Include="Model\Tai_lIeu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SinhVien\frm_SinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SinhVien\frm_SinhVien.Designer.cs">
+      <DependentUpon>frm_SinhVien.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin\frm_TaiKhoanNguoiDung.resx">
+      <DependentUpon>frm_TaiKhoanNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_GV.resx">
+    <EmbeddedResource Include="Admin\frm_GV.resx">
       <DependentUpon>frm_GV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Login.resx">
+    <EmbeddedResource Include="Authentication\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Signup.resx">
+    <EmbeddedResource Include="Authentication\frm_Signup.resx">
       <DependentUpon>frm_Signup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -128,6 +143,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SinhVien\frm_SinhVien.resx">
+      <DependentUpon>frm_SinhVien.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -157,6 +175,8 @@
   <ItemGroup>
     <None Include="Resources\security.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="GiaoVien\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
@@ -317,6 +317,9 @@ namespace QLMH.DangDuyHoang.Model
                 .Property(e => e.MaGV)
                 .IsFixedLength()
                 .IsUnicode(false);
+
+
+
         }
     }
 }

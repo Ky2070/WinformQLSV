@@ -15,7 +15,6 @@ namespace QLMH.DangDuyHoang.Model
         [StringLength(50)]
         public string TenDangNhap { get; set; }
 
-        [StringLength(50)]
         public string MatKhau { get; set; }
 
         [Required]

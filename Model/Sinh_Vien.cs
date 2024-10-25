@@ -52,5 +52,6 @@ namespace QLMH.DangDuyHoang.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Hoat_Dong_Ngoai_Khoa> Hoat_Dong_Ngoai_Khoa { get; set; }
+
     }
 }
