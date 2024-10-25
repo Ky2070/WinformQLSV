@@ -105,8 +105,10 @@
     <Compile Include="Model\Quan_Tri_Vien.cs" />
     <Compile Include="Model\Quyen_Truy_Cap.cs" />
     <Compile Include="Model\Sinh_Vien.cs" />
+    <Compile Include="Model\TaiLieuChiTiet.cs" />
     <Compile Include="Model\Tai_Khoan_Nguoi_Dung.cs" />
     <Compile Include="Model\Tai_lIeu.cs" />
+    <Compile Include="Model\Thanh_Tich.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SinhVien\frm_SinhVien.cs">

@@ -90,17 +90,36 @@ namespace QLMH.DangDuyHoang.SinhVien
         {
             using (var context = new DBContext())
             {
-                var query = from hdnk in context.Hoat_Dong_Ngoai_Khoa
+                var query = from hdnk in context.Thanh_Tich
+                            where hdnk.MaSV == maSV
                             select new
                             {
                                 MaHD = hdnk.MaHDNK,
-                                TenHDNK = hdnk.TenHDNK,
+                                TenHDNK = hdnk.Hoat_Dong_Ngoai_Khoa.TenHDNK,
+                                TenSV = hdnk.Sinh_Vien.HoTenSV   
                             };
 
                 return query.ToList<dynamic>();
             }
         }
 
+        private List<dynamic> TraCuuTaiLieus(string maSV)
+        {
+            using (var context = new DBContext())
+            {
+                var query = from tlct in context.TaiLieuChiTiets
+                            where tlct.MaSV == maSV
+                            select new
+                            {
+                                MaTL = tlct.MaTL,
+                                TenTaiLieu = tlct.Tai_lIeu.TenTL,
+                                LoaiTaiLieu = tlct.Tai_lIeu.LoaiTL,
+                                PhuTrachTL = tlct.Tai_lIeu.Giao_Vien.HoTenGV
+                            };
+
+                return query.ToList<dynamic>();
+            }
+        }
         private void btnHDNK_Click(object sender, EventArgs e)
         {
             // Lấy Mã Sinh Viên từ TextBox
@@ -113,6 +132,14 @@ namespace QLMH.DangDuyHoang.SinhVien
             dataGridView1.DataSource = hoatDongNK;
         }
 
-        
+        private void btnTaiLieu_Click(object sender, EventArgs e)
+        {
+            // Lấy Mã Sinh Viên từ TextBox
+            string maSV = txtMaSV.Text;
+            
+            var TaiLieuSV = TraCuuTaiLieus(maSV);
+
+            dataGridView1.DataSource = TaiLieuSV;
+        }
     }
 }

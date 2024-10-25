@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
@@ -27,6 +27,8 @@ namespace QLMH.DangDuyHoang.Model
         public virtual DbSet<Sinh_Vien> Sinh_Vien { get; set; }
         public virtual DbSet<Tai_Khoan_Nguoi_Dung> Tai_Khoan_Nguoi_Dung { get; set; }
         public virtual DbSet<Tai_lIeu> Tai_lIeu { get; set; }
+        public virtual DbSet<TaiLieuChiTiet> TaiLieuChiTiets { get; set; }
+        public virtual DbSet<Thanh_Tich> Thanh_Tich { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -91,9 +93,9 @@ namespace QLMH.DangDuyHoang.Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<Hoat_Dong_Ngoai_Khoa>()
-                .HasMany(e => e.Sinh_Vien)
-                .WithMany(e => e.Hoat_Dong_Ngoai_Khoa)
-                .Map(m => m.ToTable("Thanh_Tich").MapLeftKey("MaHDNK").MapRightKey("MaSV"));
+                .HasMany(e => e.Thanh_Tich)
+                .WithRequired(e => e.Hoat_Dong_Ngoai_Khoa)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Hop_Dong_Lam_Viec>()
                 .Property(e => e.MaHopDong)
@@ -289,9 +291,14 @@ namespace QLMH.DangDuyHoang.Model
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Sinh_Vien>()
-                .HasMany(e => e.Tai_lIeu)
-                .WithMany(e => e.Sinh_Vien)
-                .Map(m => m.ToTable("TaiLieuChiTiet").MapLeftKey("MaSV").MapRightKey("MaTL"));
+                .HasMany(e => e.TaiLieuChiTiets)
+                .WithRequired(e => e.Sinh_Vien)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Sinh_Vien>()
+                .HasMany(e => e.Thanh_Tich)
+                .WithRequired(e => e.Sinh_Vien)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Tai_Khoan_Nguoi_Dung>()
                 .Property(e => e.MaTKND)
@@ -318,8 +325,30 @@ namespace QLMH.DangDuyHoang.Model
                 .IsFixedLength()
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Tai_lIeu>()
+                .HasMany(e => e.TaiLieuChiTiets)
+                .WithRequired(e => e.Tai_lIeu)
+                .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<TaiLieuChiTiet>()
+                .Property(e => e.MaSV)
+                .IsFixedLength()
+                .IsUnicode(false);
 
+            modelBuilder.Entity<TaiLieuChiTiet>()
+                .Property(e => e.MaTL)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Thanh_Tich>()
+                .Property(e => e.MaHDNK)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Thanh_Tich>()
+                .Property(e => e.MaSV)
+                .IsFixedLength()
+                .IsUnicode(false);
         }
     }
 }

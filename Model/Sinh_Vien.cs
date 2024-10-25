@@ -13,8 +13,8 @@ namespace QLMH.DangDuyHoang.Model
         {
             ChiTietLuuDiems = new HashSet<ChiTietLuuDiem>();
             Tai_Khoan_Nguoi_Dung = new HashSet<Tai_Khoan_Nguoi_Dung>();
-            Tai_lIeu = new HashSet<Tai_lIeu>();
-            Hoat_Dong_Ngoai_Khoa = new HashSet<Hoat_Dong_Ngoai_Khoa>();
+            TaiLieuChiTiets = new HashSet<TaiLieuChiTiet>();
+            Thanh_Tich = new HashSet<Thanh_Tich>();
         }
 
         [Key]
@@ -48,10 +48,9 @@ namespace QLMH.DangDuyHoang.Model
         public virtual ICollection<Tai_Khoan_Nguoi_Dung> Tai_Khoan_Nguoi_Dung { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tai_lIeu> Tai_lIeu { get; set; }
+        public virtual ICollection<TaiLieuChiTiet> TaiLieuChiTiets { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hoat_Dong_Ngoai_Khoa> Hoat_Dong_Ngoai_Khoa { get; set; }
-
+        public virtual ICollection<Thanh_Tich> Thanh_Tich { get; set; }
     }
 }

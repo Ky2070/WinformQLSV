@@ -177,6 +177,11 @@ namespace QLMH.DangDuyHoang
             }
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frm_GV frm_GV = new frm_GV();
+            this.Hide();
+            frm_GV.Show();  
+        }
     }
 }

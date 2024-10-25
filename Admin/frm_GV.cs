@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QLMH.DangDuyHoang.Model;
 using System.Data.Entity.Infrastructure;
+using QLMH.DangDuyHoang.Admin;
 
 
 namespace QLMH.DangDuyHoang
@@ -322,5 +323,11 @@ namespace QLMH.DangDuyHoang
             }
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frm_TaiKhoanNguoiDung frm_TKND = new frm_TaiKhoanNguoiDung();
+            this.Hide();
+            frm_TKND.Show();
+        }
     }
 }

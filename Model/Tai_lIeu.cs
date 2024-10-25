@@ -11,7 +11,7 @@ namespace QLMH.DangDuyHoang.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tai_lIeu()
         {
-            Sinh_Vien = new HashSet<Sinh_Vien>();
+            TaiLieuChiTiets = new HashSet<TaiLieuChiTiet>();
         }
 
         [Key]
@@ -31,6 +31,6 @@ namespace QLMH.DangDuyHoang.Model
         public virtual Giao_Vien Giao_Vien { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sinh_Vien> Sinh_Vien { get; set; }
+        public virtual ICollection<TaiLieuChiTiet> TaiLieuChiTiets { get; set; }
     }
 }

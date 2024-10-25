@@ -43,6 +43,7 @@
             this.lblBangCap = new System.Windows.Forms.Label();
             this.lblTrangThaiGV = new System.Windows.Forms.Label();
             this.btnQLMH = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaoVien)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,10 +122,10 @@
             // dgvGiaoVien
             // 
             this.dgvGiaoVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGiaoVien.Location = new System.Drawing.Point(196, 30);
+            this.dgvGiaoVien.Location = new System.Drawing.Point(196, 43);
             this.dgvGiaoVien.Name = "dgvGiaoVien";
             this.dgvGiaoVien.ReadOnly = true;
-            this.dgvGiaoVien.Size = new System.Drawing.Size(592, 380);
+            this.dgvGiaoVien.Size = new System.Drawing.Size(592, 367);
             this.dgvGiaoVien.TabIndex = 10;
             this.dgvGiaoVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGiaoVien_CellClick);
             // 
@@ -273,9 +274,25 @@
             this.btnQLMH.UseVisualStyleBackColor = true;
             this.btnQLMH.Click += new System.EventHandler(this.btnQLMH_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnBack.Location = new System.Drawing.Point(772, -3);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(30, 30);
+            this.btnBack.TabIndex = 26;
+            this.btnBack.Text = "X";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // frm_GV
             // 
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnQLMH);
             this.Controls.Add(this.btnLamMoi);
             this.Controls.Add(this.btnXoa);
@@ -302,6 +319,7 @@
             this.Controls.Add(this.lblMaKhoa);
             this.Controls.Add(this.lblBangCap);
             this.Controls.Add(this.lblTrangThaiGV);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_GV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý Giáo viên";
@@ -342,5 +360,6 @@
         private System.Windows.Forms.Label lblBangCap;
         private System.Windows.Forms.Label lblTrangThaiGV;
         private System.Windows.Forms.Button btnQLMH;
+        private System.Windows.Forms.Button btnBack;
     }
 }

@@ -173,5 +173,46 @@ namespace QLMH.DangDuyHoang
             frm_Signup.Show();
 
         }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Kiểm tra xem cả hai textbox đã được điền chưa
+                if (!string.IsNullOrWhiteSpace(txtUsername.Text) &&
+                    !string.IsNullOrWhiteSpace(txtPassword.Text))
+                {
+                    // Gọi hàm đăng nhập
+                    loginbtn_Click(this, EventArgs.Empty);
+                }
+                else
+                {
+                    // Hiển thị thông báo nếu chưa điền đủ thông tin
+                    if (string.IsNullOrWhiteSpace(txtUsername.Text))
+                    {
+                        usererror.Visible = true;
+                        errormsg.Text = "Please fill in your username!";
+                    }
+
+                    if (string.IsNullOrWhiteSpace(txtPassword.Text))
+                    {
+                        passerror.Visible = true;
+                        errormsg.Text = "Please fill in your password!";
+                    }
+                }
+            }
+        }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Chuyển sang textbox mật khẩu khi nhấn Enter
+                txtPassword.Focus();
+                txtPassword_KeyDown(sender, e);
+            }
+            
+        }
     }
 }

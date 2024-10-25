@@ -1,4 +1,6 @@
-﻿namespace QLMH.DangDuyHoang.SinhVien
+﻿using System.Windows.Forms;
+
+namespace QLMH.DangDuyHoang.SinhVien
 {
     partial class frm_SinhVien
     {
@@ -51,6 +53,7 @@
             this.btnKQHT = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnHDNK = new System.Windows.Forms.Button();
+            this.btnTaiLieu = new System.Windows.Forms.Button();
             this.groupBoxInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +63,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Navy;
-            this.lblTitle.Location = new System.Drawing.Point(250, 20);
+            this.lblTitle.Location = new System.Drawing.Point(297, 20);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(251, 29);
             this.lblTitle.TabIndex = 0;
@@ -122,17 +125,20 @@
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.Tomato;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(250, 277);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(100, 30);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Đăng xuất";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // groupBoxInfo
             // 
+            this.groupBoxInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.groupBoxInfo.Controls.Add(this.lblMaSV);
             this.groupBoxInfo.Controls.Add(this.lblHoTen);
             this.groupBoxInfo.Controls.Add(this.lblLop);
@@ -150,7 +156,7 @@
             // btnKQHT
             // 
             this.btnKQHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKQHT.Location = new System.Drawing.Point(557, 147);
+            this.btnKQHT.Location = new System.Drawing.Point(557, 155);
             this.btnKQHT.Name = "btnKQHT";
             this.btnKQHT.Size = new System.Drawing.Size(181, 30);
             this.btnKQHT.TabIndex = 3;
@@ -160,6 +166,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(100, 325);
             this.dataGridView1.Name = "dataGridView1";
@@ -169,7 +177,7 @@
             // btnHDNK
             // 
             this.btnHDNK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHDNK.Location = new System.Drawing.Point(557, 221);
+            this.btnHDNK.Location = new System.Drawing.Point(557, 227);
             this.btnHDNK.Name = "btnHDNK";
             this.btnHDNK.Size = new System.Drawing.Size(181, 30);
             this.btnHDNK.TabIndex = 5;
@@ -177,9 +185,21 @@
             this.btnHDNK.UseVisualStyleBackColor = true;
             this.btnHDNK.Click += new System.EventHandler(this.btnHDNK_Click);
             // 
+            // btnTaiLieu
+            // 
+            this.btnTaiLieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaiLieu.Location = new System.Drawing.Point(557, 83);
+            this.btnTaiLieu.Name = "btnTaiLieu";
+            this.btnTaiLieu.Size = new System.Drawing.Size(181, 30);
+            this.btnTaiLieu.TabIndex = 6;
+            this.btnTaiLieu.Text = "Tra cứu tài liệu";
+            this.btnTaiLieu.UseVisualStyleBackColor = true;
+            this.btnTaiLieu.Click += new System.EventHandler(this.btnTaiLieu_Click);
+            // 
             // frm_SinhVien
             // 
             this.ClientSize = new System.Drawing.Size(800, 481);
+            this.Controls.Add(this.btnTaiLieu);
             this.Controls.Add(this.btnHDNK);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnKQHT);
@@ -188,6 +208,7 @@
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_SinhVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông Tin Sinh Viên";
             this.groupBoxInfo.ResumeLayout(false);
             this.groupBoxInfo.PerformLayout();
@@ -201,5 +222,6 @@
         private System.Windows.Forms.Button btnKQHT;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnHDNK;
+        private Button btnTaiLieu;
     }
 }

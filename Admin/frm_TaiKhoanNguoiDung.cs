@@ -127,5 +127,18 @@ namespace QLMH.DangDuyHoang.Admin
             }
         }
 
+        private void btnQLGV_Click(object sender, EventArgs e)
+        {
+            frm_GV frm_GV = new frm_GV();
+            this.Hide();
+            frm_GV.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            frm_Login frm_DN = new frm_Login();
+            this.Hide();
+            frm_DN.Show();
+        }
     }
 }
