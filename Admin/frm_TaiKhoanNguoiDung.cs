@@ -140,5 +140,26 @@ namespace QLMH.DangDuyHoang.Admin
             this.Hide();
             frm_DN.Show();
         }
+
+        private void btnQLKhoa_Click(object sender, EventArgs e)
+        {
+            frm_Khoa frmKhoa = new frm_Khoa();
+            this.Hide();
+            frmKhoa.Show();
+        }
+
+        private void btnQLSV_Click(object sender, EventArgs e)
+        {
+            frm_qlSV frmQLSV = new frm_qlSV();
+            this.Hide();
+            frmQLSV.Show();
+        }
+
+        private void btnQlyLop_Click(object sender, EventArgs e)
+        {
+            frm_Lop frmLop = new frm_Lop();
+            this.Hide();
+            frmLop.Show();
+        }
     }
 }

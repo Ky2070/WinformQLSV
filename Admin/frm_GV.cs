@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using QLMH.DangDuyHoang.Model;
 using System.Data.Entity.Infrastructure;
 using QLMH.DangDuyHoang.Admin;
+using System.Data.Entity.Core.Metadata.Edm;
 
 
 namespace QLMH.DangDuyHoang
@@ -17,7 +18,7 @@ namespace QLMH.DangDuyHoang
         public partial class frm_GV : Form
         {
         private DBContext dbContext = new DBContext(); // Khởi tạo context của Entity Framework
-        private List<Giao_Vien> listGiaoVien;
+        //public List<Giao_Vien> listGiaoVien;
         public frm_GV()
             {
                 InitializeComponent();
@@ -27,8 +28,46 @@ namespace QLMH.DangDuyHoang
             private void frm_GV_Load(object sender, EventArgs e)
             {
                 LoadGiaoVien();
+                LoadMaQTVComboBox();
+                LoadMaQTCComboBox();
+                LoadTenKhoaComboBox();
             }
 
+        private void LoadMaQTVComboBox()
+        {
+            var listMaQTV = dbContext.Quan_Tri_Vien
+                                     .Select(qtv => new
+                                     {
+                                         qtv.MaQTV
+                                     }).ToList();
+
+            cmbMaQTV.DataSource = listMaQTV;
+            cmbMaQTV.DisplayMember = "MaQTV";
+            cmbMaQTV.ValueMember = "MaQTV";
+        }
+        private void LoadMaQTCComboBox()
+        {
+            var listMaQTC = dbContext.Quyen_Truy_Cap
+                                     .Select(qtc => new
+                                     {
+                                         qtc.MaQTC
+                                     }).ToList();
+
+            cmbMaQTC.DataSource = listMaQTC;
+            cmbMaQTC.DisplayMember = "MaQTC";
+            cmbMaQTC.ValueMember = "MaQTC";
+        }
+        private void LoadTenKhoaComboBox()
+        {
+            var listMaKhoa = dbContext.Khoas
+                                      .Select(k => new {
+                                          k.MaKhoa,   // Thêm mã khoa
+                                          k.TenKhoa })
+                                      .ToList();
+            cmbMaKhoa.DataSource = listMaKhoa;
+            cmbMaKhoa.DisplayMember = "TenKhoa";  // Hiển thị tên khoa
+            cmbMaKhoa.ValueMember = "MaKhoa";      // Giá trị là mã khoa
+        }
         private void LoadGiaoVien()
         {
             // Giả lập việc lấy dữ liệu từ cơ sở dữ liệu
@@ -43,7 +82,7 @@ namespace QLMH.DangDuyHoang
                                    gv.NgaySinh,
                                    gv.DiaChi,
                                    gv.MaQTC,
-                                   gv.MaKhoa,
+                                   gv.Khoa.TenKhoa,
                                    gv.BangCap,
                                    gv.TrangThaiGV
                                    // Có thể thêm hoặc bớt các trường tùy ý
@@ -66,7 +105,7 @@ namespace QLMH.DangDuyHoang
 
                 // Giả sử bạn có các TextBox để hiển thị dữ liệu
                 txtMaGV.Text = selectedRow.Cells["MaGV"].Value.ToString();
-                txtMaQTV.Text = selectedRow.Cells["MaQTV"].Value.ToString();
+                //txtMaQTV.Text = selectedRow.Cells["MaQTV"].Value.ToString();
                 txtHoTenGV.Text = selectedRow.Cells["HoTenGV"].Value.ToString();
                 txtPhai.Text = selectedRow.Cells["Phai"].Value.ToString();
                 // Gán giá trị cho DateTimePicker
@@ -79,10 +118,23 @@ namespace QLMH.DangDuyHoang
                     dtpNgaySinh.Value = DateTime.Now; // Hoặc giá trị mặc định nếu không thành công
                 }
                 txtDiaChi.Text = selectedRow.Cells["DiaChi"].Value.ToString();
-                txtMaQTC.Text = selectedRow.Cells["MaQTC"].Value.ToString();
-                txtMaKhoa.Text = selectedRow.Cells["MaKhoa"].Value.ToString();
                 txtBangCap.Text = selectedRow.Cells["BangCap"].Value.ToString();
                 txtTrangThaiGV.Text = selectedRow.Cells["TrangThaiGV"].Value.ToString();
+
+                if (selectedRow.Cells["TenKhoa"].Value != null)
+                {
+                    var tenKhoa = selectedRow.Cells["TenKhoa"].Value.ToString();
+                    cmbMaKhoa.SelectedValue = dbContext.Khoas.FirstOrDefault(k => k.TenKhoa == tenKhoa)?.MaKhoa;
+                }
+
+                if (selectedRow.Cells["MaQTV"].Value != null)
+                {
+                    cmbMaQTV.SelectedValue = selectedRow.Cells["MaQTV"].Value.ToString();
+                }
+                if (selectedRow.Cells["MaQTC"].Value != null)
+                {
+                    cmbMaQTC.SelectedValue = selectedRow.Cells["MaQTC"].Value.ToString();
+                }
             }
         }
 
@@ -97,13 +149,15 @@ namespace QLMH.DangDuyHoang
         private void ClearData()
         {
             txtMaGV.Clear();
-            txtMaQTV.Clear();
             txtHoTenGV.Clear();
             txtPhai.Clear();
             txtDiaChi.Clear();
-            txtMaQTC.Clear();
-            txtMaKhoa.Clear();
             txtBangCap.Clear();
+
+            // Đặt lại các ComboBox về giá trị mặc định
+            cmbMaKhoa.SelectedIndex = 0; // Hoặc 0 nếu bạn muốn chọn mục đầu tiên
+            cmbMaQTV.SelectedIndex = 0;
+            cmbMaQTC.SelectedIndex = 0;
         }
 
         private void btnQLMH_Click(object sender, EventArgs e)
@@ -117,7 +171,9 @@ namespace QLMH.DangDuyHoang
         private void btnThem_Click(object sender, EventArgs e)
         {
             // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay chưa
-            if (string.IsNullOrWhiteSpace(txtMaGV.Text) || string.IsNullOrWhiteSpace(txtHoTenGV.Text))
+            if (string.IsNullOrWhiteSpace(txtMaGV.Text) || string.IsNullOrWhiteSpace(txtHoTenGV.Text) 
+                //|| string.IsNullOrWhiteSpace(txtPhai.Text)
+                )
             {
                 MessageBox.Show("Vui lòng điền đủ thông tin bắt buộc.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -133,16 +189,6 @@ namespace QLMH.DangDuyHoang
                 return;
             }
 
-            // Kiểm tra mã QTV đã tồn tại chưa
-            var existingQuanTriVien = dbContext.Giao_Vien
-                                                .FirstOrDefault(gv => gv.MaQTV == txtMaQTV.Text);
-
-            if (existingQuanTriVien != null)
-            {
-                MessageBox.Show("Mã quản trị viên đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             // Kiểm tra độ tuổi của giáo viên (phải từ 18 tuổi trở lên)
             DateTime today = DateTime.Now;
             DateTime ngaySinh = dtpNgaySinh.Value;
@@ -153,17 +199,36 @@ namespace QLMH.DangDuyHoang
                 return;
             }
 
+            // Kiểm tra các ComboBox có giá trị hợp lệ
+            if (cmbMaQTV.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn Mã QTV.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmbMaKhoa.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn Mã Khoa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmbMaQTC.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn Mã QTC.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Tạo đối tượng Giao_Vien mới
             Giao_Vien newGiaoVien = new Giao_Vien
             {
                 MaGV = txtMaGV.Text.ToUpper(),
-                MaQTV = txtMaQTV.Text.ToUpper(),
+                MaQTV = cmbMaQTV.SelectedValue.ToString(), // Giá trị từ ComboBox
                 HoTenGV = txtHoTenGV.Text,
                 Phai = txtPhai.Text,
                 NgaySinh = dtpNgaySinh.Value,
                 DiaChi = txtDiaChi.Text,
-                MaQTC = txtMaQTC.Text.ToUpper(),
-                MaKhoa = txtMaKhoa.Text.ToUpper(),
+                MaQTC = cmbMaQTC.SelectedValue.ToString(), // Giá trị từ ComboBox
+                MaKhoa = cmbMaKhoa.SelectedValue?.ToString() ?? "", // Giá trị từ ComboBox
                 BangCap = txtBangCap.Text,
                 TrangThaiGV = txtTrangThaiGV.Text,
             };
@@ -172,6 +237,15 @@ namespace QLMH.DangDuyHoang
             {
                 // Thêm giáo viên vào cơ sở dữ liệu
                 dbContext.Giao_Vien.Add(newGiaoVien);
+
+                Console.WriteLine($"MaGV: {newGiaoVien.MaGV}");
+                Console.WriteLine($"HoTenGV: {newGiaoVien.HoTenGV}");
+                Console.WriteLine($"Phai: {newGiaoVien.Phai}");
+                Console.WriteLine($"NgaySinh: {newGiaoVien.NgaySinh}");
+                Console.WriteLine($"DiaChi: {newGiaoVien.DiaChi}");
+                Console.WriteLine($"MaKhoa: {newGiaoVien.MaKhoa}");
+                Console.WriteLine($"BangCap: {newGiaoVien.BangCap}");
+                Console.WriteLine($"TrangThaiGV: {newGiaoVien.TrangThaiGV}");
                 dbContext.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
 
                 // Tải lại danh sách giáo viên để cập nhật DataGridView
@@ -231,12 +305,9 @@ namespace QLMH.DangDuyHoang
 
             // Kiểm tra các trường không được để trống
             if (string.IsNullOrWhiteSpace(txtMaGV.Text) ||
-                string.IsNullOrWhiteSpace(txtMaQTV.Text) ||
                 string.IsNullOrWhiteSpace(txtHoTenGV.Text) ||
                 string.IsNullOrWhiteSpace(txtPhai.Text) ||
                 string.IsNullOrWhiteSpace(txtDiaChi.Text) ||
-                string.IsNullOrWhiteSpace(txtMaQTC.Text) ||
-                string.IsNullOrWhiteSpace(txtMaKhoa.Text) ||
                 string.IsNullOrWhiteSpace(txtBangCap.Text) ||
                 string.IsNullOrWhiteSpace(txtTrangThaiGV.Text))
             {
@@ -245,17 +316,17 @@ namespace QLMH.DangDuyHoang
             }
 
             // Cập nhật thông tin giáo viên từ các TextBox
-            //giaoVienToUpdate.MaGV = txtMaGV.Text; // Cập nhật mã giáo viên nếu cần thiết
-            giaoVienToUpdate.MaQTV = txtMaQTV.Text;
             giaoVienToUpdate.HoTenGV = txtHoTenGV.Text;
             giaoVienToUpdate.Phai = txtPhai.Text;
             giaoVienToUpdate.NgaySinh = dtpNgaySinh.Value;
             giaoVienToUpdate.DiaChi = txtDiaChi.Text;
-            giaoVienToUpdate.MaQTC = txtMaQTC.Text;
-            giaoVienToUpdate.MaKhoa = txtMaKhoa.Text;
             giaoVienToUpdate.BangCap = txtBangCap.Text;
             giaoVienToUpdate.TrangThaiGV = txtTrangThaiGV.Text;
 
+            // Cập nhật mã khoa, mã QTV và mã QTC từ ComboBox
+            giaoVienToUpdate.MaKhoa = cmbMaKhoa.SelectedValue.ToString(); // Lấy mã khoa từ ComboBox
+            giaoVienToUpdate.MaQTV = cmbMaQTV.SelectedValue.ToString();   // Lấy mã QTV từ ComboBox
+            giaoVienToUpdate.MaQTC = cmbMaQTC.SelectedValue.ToString();   // Lấy mã QTC từ ComboBox
             try
             {
                 // Lưu thay đổi vào cơ sở dữ liệu

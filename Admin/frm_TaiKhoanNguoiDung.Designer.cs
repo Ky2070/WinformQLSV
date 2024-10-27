@@ -13,7 +13,7 @@
         private System.Windows.Forms.Label lblMatKhau;
         private System.Windows.Forms.Label lblMaSV;
         private System.Windows.Forms.Label lblMaQTC;
-        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnQLKhoa;
         private System.Windows.Forms.Button btnXoa;
 
         /// <summary>
@@ -33,11 +33,13 @@
             this.lblMatKhau = new System.Windows.Forms.Label();
             this.lblMaSV = new System.Windows.Forms.Label();
             this.lblMaQTC = new System.Windows.Forms.Label();
-            this.btnSua = new System.Windows.Forms.Button();
+            this.btnQLKhoa = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnQLGV = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnQLSV = new System.Windows.Forms.Button();
+            this.btnQlyLop = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoanNguoiDung)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,35 +55,35 @@
             // 
             // txtMaTKND
             // 
-            this.txtMaTKND.Location = new System.Drawing.Point(150, 82);
+            this.txtMaTKND.Location = new System.Drawing.Point(130, 82);
             this.txtMaTKND.Name = "txtMaTKND";
             this.txtMaTKND.Size = new System.Drawing.Size(200, 20);
             this.txtMaTKND.TabIndex = 1;
             // 
             // txtTenDangNhap
             // 
-            this.txtTenDangNhap.Location = new System.Drawing.Point(150, 112);
+            this.txtTenDangNhap.Location = new System.Drawing.Point(130, 112);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(200, 20);
             this.txtTenDangNhap.TabIndex = 2;
             // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(150, 142);
+            this.txtMatKhau.Location = new System.Drawing.Point(130, 142);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(200, 20);
             this.txtMatKhau.TabIndex = 3;
             // 
             // txtMaSV
             // 
-            this.txtMaSV.Location = new System.Drawing.Point(150, 172);
+            this.txtMaSV.Location = new System.Drawing.Point(130, 172);
             this.txtMaSV.Name = "txtMaSV";
             this.txtMaSV.Size = new System.Drawing.Size(200, 20);
             this.txtMaSV.TabIndex = 4;
             // 
             // txtMaQTC
             // 
-            this.txtMaQTC.Location = new System.Drawing.Point(150, 202);
+            this.txtMaQTC.Location = new System.Drawing.Point(130, 202);
             this.txtMaQTC.Name = "txtMaQTC";
             this.txtMaQTC.Size = new System.Drawing.Size(200, 20);
             this.txtMaQTC.TabIndex = 5;
@@ -131,18 +133,24 @@
             this.lblMaQTC.TabIndex = 10;
             this.lblMaQTC.Text = "Mã quyền truy cập:";
             // 
-            // btnSua
+            // btnQLKhoa
             // 
-            this.btnSua.Location = new System.Drawing.Point(400, 124);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(100, 30);
-            this.btnSua.TabIndex = 12;
-            this.btnSua.Text = "Cập nhật";
-            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnQLKhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnQLKhoa.FlatAppearance.BorderSize = 0;
+            this.btnQLKhoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQLKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLKhoa.ForeColor = System.Drawing.Color.White;
+            this.btnQLKhoa.Location = new System.Drawing.Point(372, 117);
+            this.btnQLKhoa.Name = "btnQLKhoa";
+            this.btnQLKhoa.Size = new System.Drawing.Size(140, 30);
+            this.btnQLKhoa.TabIndex = 12;
+            this.btnQLKhoa.Text = "Quản Lý Khoa";
+            this.btnQLKhoa.UseVisualStyleBackColor = false;
+            this.btnQLKhoa.Click += new System.EventHandler(this.btnQLKhoa_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(400, 179);
+            this.btnXoa.Location = new System.Drawing.Point(400, 242);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(100, 30);
             this.btnXoa.TabIndex = 13;
@@ -154,11 +162,11 @@
             // 
             this.btnQLGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.btnQLGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQLGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQLGV.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnQLGV.Location = new System.Drawing.Point(381, 243);
+            this.btnQLGV.Location = new System.Drawing.Point(372, 158);
             this.btnQLGV.Name = "btnQLGV";
-            this.btnQLGV.Size = new System.Drawing.Size(126, 30);
+            this.btnQLGV.Size = new System.Drawing.Size(140, 30);
             this.btnQLGV.TabIndex = 14;
             this.btnQLGV.Text = "Quản Lý Giáo Viên";
             this.btnQLGV.UseVisualStyleBackColor = false;
@@ -185,14 +193,45 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(519, 50);
+            this.label1.Size = new System.Drawing.Size(527, 50);
             this.label1.TabIndex = 16;
-            this.label1.Text = "Tài Khoản Người Dùng";
+            this.label1.Text = "Tài Khoản Sinh Viên";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnQLSV
+            // 
+            this.btnQLSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnQLSV.FlatAppearance.BorderSize = 0;
+            this.btnQLSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQLSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLSV.ForeColor = System.Drawing.Color.White;
+            this.btnQLSV.Location = new System.Drawing.Point(372, 76);
+            this.btnQLSV.Name = "btnQLSV";
+            this.btnQLSV.Size = new System.Drawing.Size(140, 30);
+            this.btnQLSV.TabIndex = 17;
+            this.btnQLSV.Text = "Quản Lý Sinh Viên";
+            this.btnQLSV.UseVisualStyleBackColor = false;
+            this.btnQLSV.Click += new System.EventHandler(this.btnQLSV_Click);
+            // 
+            // btnQlyLop
+            // 
+            this.btnQlyLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnQlyLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQlyLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQlyLop.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnQlyLop.Location = new System.Drawing.Point(372, 198);
+            this.btnQlyLop.Name = "btnQlyLop";
+            this.btnQlyLop.Size = new System.Drawing.Size(140, 30);
+            this.btnQlyLop.TabIndex = 18;
+            this.btnQlyLop.Text = "Quản Lý Lớp Học";
+            this.btnQlyLop.UseVisualStyleBackColor = false;
+            this.btnQlyLop.Click += new System.EventHandler(this.btnQlyLop_Click);
             // 
             // frm_TaiKhoanNguoiDung
             // 
-            this.ClientSize = new System.Drawing.Size(519, 427);
+            this.ClientSize = new System.Drawing.Size(527, 427);
+            this.Controls.Add(this.btnQlyLop);
+            this.Controls.Add(this.btnQLSV);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnQLGV);
@@ -207,7 +246,7 @@
             this.Controls.Add(this.lblMatKhau);
             this.Controls.Add(this.lblMaSV);
             this.Controls.Add(this.lblMaQTC);
-            this.Controls.Add(this.btnSua);
+            this.Controls.Add(this.btnQLKhoa);
             this.Controls.Add(this.btnXoa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_TaiKhoanNguoiDung";
@@ -223,5 +262,7 @@
         private System.Windows.Forms.Button btnQLGV;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnQLSV;
+        private System.Windows.Forms.Button btnQlyLop;
     }
 }

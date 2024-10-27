@@ -18,13 +18,10 @@
         private void InitializeComponent()
         {
             this.txtMaGV = new System.Windows.Forms.TextBox();
-            this.txtMaQTV = new System.Windows.Forms.TextBox();
             this.txtHoTenGV = new System.Windows.Forms.TextBox();
             this.txtPhai = new System.Windows.Forms.TextBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.txtMaQTC = new System.Windows.Forms.TextBox();
-            this.txtMaKhoa = new System.Windows.Forms.TextBox();
             this.txtBangCap = new System.Windows.Forms.TextBox();
             this.txtTrangThaiGV = new System.Windows.Forms.TextBox();
             this.dgvGiaoVien = new System.Windows.Forms.DataGridView();
@@ -44,6 +41,9 @@
             this.lblTrangThaiGV = new System.Windows.Forms.Label();
             this.btnQLMH = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.cmbMaQTV = new System.Windows.Forms.ComboBox();
+            this.cmbMaQTC = new System.Windows.Forms.ComboBox();
+            this.cmbMaKhoa = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaoVien)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,13 +53,6 @@
             this.txtMaGV.Name = "txtMaGV";
             this.txtMaGV.Size = new System.Drawing.Size(100, 20);
             this.txtMaGV.TabIndex = 0;
-            // 
-            // txtMaQTV
-            // 
-            this.txtMaQTV.Location = new System.Drawing.Point(62, 70);
-            this.txtMaQTV.Name = "txtMaQTV";
-            this.txtMaQTV.Size = new System.Drawing.Size(100, 20);
-            this.txtMaQTV.TabIndex = 1;
             // 
             // txtHoTenGV
             // 
@@ -89,20 +82,6 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(100, 20);
             this.txtDiaChi.TabIndex = 5;
-            // 
-            // txtMaQTC
-            // 
-            this.txtMaQTC.Location = new System.Drawing.Point(66, 266);
-            this.txtMaQTC.Name = "txtMaQTC";
-            this.txtMaQTC.Size = new System.Drawing.Size(70, 20);
-            this.txtMaQTC.TabIndex = 6;
-            // 
-            // txtMaKhoa
-            // 
-            this.txtMaKhoa.Location = new System.Drawing.Point(67, 308);
-            this.txtMaKhoa.Name = "txtMaKhoa";
-            this.txtMaKhoa.Size = new System.Drawing.Size(70, 20);
-            this.txtMaKhoa.TabIndex = 7;
             // 
             // txtBangCap
             // 
@@ -289,6 +268,30 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // cmbMaQTV
+            // 
+            this.cmbMaQTV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMaQTV.Location = new System.Drawing.Point(62, 70);
+            this.cmbMaQTV.Name = "cmbMaQTV";
+            this.cmbMaQTV.Size = new System.Drawing.Size(100, 21);
+            this.cmbMaQTV.TabIndex = 30;
+            // 
+            // cmbMaQTC
+            // 
+            this.cmbMaQTC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMaQTC.Location = new System.Drawing.Point(66, 266);
+            this.cmbMaQTC.Name = "cmbMaQTC";
+            this.cmbMaQTC.Size = new System.Drawing.Size(100, 21);
+            this.cmbMaQTC.TabIndex = 31;
+            // 
+            // cmbMaKhoa
+            // 
+            this.cmbMaKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMaKhoa.Location = new System.Drawing.Point(67, 308);
+            this.cmbMaKhoa.Name = "cmbMaKhoa";
+            this.cmbMaKhoa.Size = new System.Drawing.Size(100, 21);
+            this.cmbMaKhoa.TabIndex = 32;
+            // 
             // frm_GV
             // 
             this.ClientSize = new System.Drawing.Size(800, 450);
@@ -301,13 +304,10 @@
             this.Controls.Add(this.dgvGiaoVien);
             this.Controls.Add(this.txtTrangThaiGV);
             this.Controls.Add(this.txtBangCap);
-            this.Controls.Add(this.txtMaKhoa);
-            this.Controls.Add(this.txtMaQTC);
             this.Controls.Add(this.txtDiaChi);
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.txtPhai);
             this.Controls.Add(this.txtHoTenGV);
-            this.Controls.Add(this.txtMaQTV);
             this.Controls.Add(this.txtMaGV);
             this.Controls.Add(this.lblMaGV);
             this.Controls.Add(this.lblMaQTV);
@@ -319,6 +319,9 @@
             this.Controls.Add(this.lblMaKhoa);
             this.Controls.Add(this.lblBangCap);
             this.Controls.Add(this.lblTrangThaiGV);
+            this.Controls.Add(this.cmbMaQTV);
+            this.Controls.Add(this.cmbMaQTC);
+            this.Controls.Add(this.cmbMaKhoa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_GV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -331,15 +334,14 @@
         }
 
         #endregion
-
+        private System.Windows.Forms.ComboBox cmbMaQTC;
+        private System.Windows.Forms.ComboBox cmbMaKhoa;
+        private System.Windows.Forms.ComboBox cmbMaQTV;
         private System.Windows.Forms.TextBox txtMaGV;
-        private System.Windows.Forms.TextBox txtMaQTV;
         private System.Windows.Forms.TextBox txtHoTenGV;
         private System.Windows.Forms.TextBox txtPhai;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.TextBox txtDiaChi;
-        private System.Windows.Forms.TextBox txtMaQTC;
-        private System.Windows.Forms.TextBox txtMaKhoa;
         private System.Windows.Forms.TextBox txtBangCap;
         private System.Windows.Forms.TextBox txtTrangThaiGV;
         private System.Windows.Forms.DataGridView dgvGiaoVien;
