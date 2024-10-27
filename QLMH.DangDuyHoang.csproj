@@ -55,6 +55,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\frm_Khoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frm_Khoa.Designer.cs">
+      <DependentUpon>frm_Khoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frm_qlSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frm_qlSV.Designer.cs">
+      <DependentUpon>frm_qlSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\frm_TaiKhoanNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +103,12 @@
     <Compile Include="Authentication\frm_Signup.Designer.cs">
       <DependentUpon>frm_Signup.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoVien\frm_ChiTietLuuDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVien\frm_ChiTietLuuDiem.Designer.cs">
+      <DependentUpon>frm_ChiTietLuuDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ChiTietLuuDiem.cs" />
     <Compile Include="Model\DBContext.cs" />
     <Compile Include="Model\Giao_Vien.cs" />
@@ -117,6 +135,9 @@
     <Compile Include="SinhVien\frm_SinhVien.Designer.cs">
       <DependentUpon>frm_SinhVien.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\frm_Khoa.resx">
+      <DependentUpon>frm_Khoa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\frm_TaiKhoanNguoiDung.resx">
       <DependentUpon>frm_TaiKhoanNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,8 +198,6 @@
   <ItemGroup>
     <None Include="Resources\security.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GiaoVien\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
