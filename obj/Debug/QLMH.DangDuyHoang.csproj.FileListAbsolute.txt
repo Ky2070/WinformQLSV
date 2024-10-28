@@ -14,16 +14,20 @@ C:\Users\hoang\source\repos\QLMH.DangDuyHoang\QLMH.DangDuyHoang\obj\Debug\QLMH.D
 C:\Users\hoang\source\repos\QLMH.DangDuyHoang\QLMH.DangDuyHoang\obj\Debug\QLMH.DangDuyHoang.exe
 C:\Users\hoang\source\repos\QLMH.DangDuyHoang\QLMH.DangDuyHoang\obj\Debug\QLMH.DangDuyHoang.pdb
 C:\Users\hoang\source\repos\QLMH.DangDuyHoang\QLMH.DangDuyHoang\obj\Debug\QLMH.DangDuyHoang.Form2.resources
-C:\Users\nguye\source\repos\DH\bin\Debug\QLMH.DangDuyHoang.exe.config
 C:\Users\nguye\source\repos\DH\bin\Debug\QLMH.DangDuyHoang.exe
 C:\Users\nguye\source\repos\DH\bin\Debug\QLMH.DangDuyHoang.pdb
+C:\Users\nguye\source\repos\DH\bin\Debug\QLMH.DangDuyHoang.exe.config
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.csproj.AssemblyReference.cache
+C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.Admin.frm_Khoa.resources
+C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.Admin.frm_Lop.resources
+C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.Admin.frm_qlSV.resources
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.Admin.frm_TaiKhoanNguoiDung.resources
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.Form1.resources
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.Form2.resources
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.frm_GV.resources
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.frm_Login.resources
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.frm_Signup.resources
+C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.GiaoVien.frm_ChiTietLuuDiem.resources
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.Properties.Resources.resources
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.SinhVien.frm_SinhVien.resources
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.csproj.GenerateResource.cache
@@ -31,4 +35,4 @@ C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.csproj.CoreCompileInp
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.Dan.04AA1F2A.Up2Date
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.exe
 C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.pdb
-C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.Admin.frm_Khoa.resources
+C:\Users\nguye\source\repos\DH\obj\Debug\QLMH.DangDuyHoang.GiaoVien.frm_QLTaiLieu.resources

@@ -61,6 +61,12 @@
     <Compile Include="Admin\frm_Khoa.Designer.cs">
       <DependentUpon>frm_Khoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\frm_Lop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frm_Lop.Designer.cs">
+      <DependentUpon>frm_Lop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\frm_qlSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,12 @@
     <Compile Include="GiaoVien\frm_ChiTietLuuDiem.Designer.cs">
       <DependentUpon>frm_ChiTietLuuDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoVien\frm_QLTaiLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoVien\frm_QLTaiLieu.Designer.cs">
+      <DependentUpon>frm_QLTaiLieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ChiTietLuuDiem.cs" />
     <Compile Include="Model\DBContext.cs" />
     <Compile Include="Model\Giao_Vien.cs" />
@@ -138,6 +150,12 @@
     <EmbeddedResource Include="Admin\frm_Khoa.resx">
       <DependentUpon>frm_Khoa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frm_Lop.resx">
+      <DependentUpon>frm_Lop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frm_qlSV.resx">
+      <DependentUpon>frm_qlSV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\frm_TaiKhoanNguoiDung.resx">
       <DependentUpon>frm_TaiKhoanNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +173,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Authentication\frm_Signup.resx">
       <DependentUpon>frm_Signup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVien\frm_ChiTietLuuDiem.resx">
+      <DependentUpon>frm_ChiTietLuuDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoVien\frm_QLTaiLieu.resx">
+      <DependentUpon>frm_QLTaiLieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

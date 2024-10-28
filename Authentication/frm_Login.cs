@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
 using QLMH.DangDuyHoang.Admin;
 using QLMH.DangDuyHoang.SinhVien;
 using QLMH.DangDuyHoang.Model;
 using System.Security.Cryptography;
+using QLMH.DangDuyHoang.GiaoVien;
 
 namespace QLMH.DangDuyHoang
 {
@@ -74,8 +74,23 @@ namespace QLMH.DangDuyHoang
                 // Thông báo lỗi đăng nhập
                 errormsg.Text = "Invalid username or password!";
             }
-
-            if ((txtUsername.Text == "admin123" && txtPassword.Text == "Passw0rd@"))
+            //account cho giáo viên
+            if(txtUsername.Text == "giaovien001" && txtPassword.Text == "Giaovien001@")
+            {
+                frm_ChiTietLuuDiem frmChiTietLuuDiem = new frm_ChiTietLuuDiem();
+                frmChiTietLuuDiem.Show();
+                this.Hide();
+            }
+            else
+            {
+                //Xử lý login
+                // Nếu thông tin đăng nhập không khớp
+                usererror.Visible = true;
+                passerror.Visible = true;
+                errormsg.Text = "Invalid username or password!";
+            }
+            //account cho admin
+            if (txtUsername.Text == "admin123" && txtPassword.Text == "Passw0rd@")
             {
                 frm_TaiKhoanNguoiDung frm_TKND = new frm_TaiKhoanNguoiDung();
                 frm_TKND.Show();

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
-using System.Text;
 using QLMH.DangDuyHoang.Model;
 
 namespace QLMH.DangDuyHoang
