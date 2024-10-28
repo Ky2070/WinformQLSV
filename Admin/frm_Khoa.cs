@@ -39,6 +39,8 @@ namespace QLMH.DangDuyHoang.Admin
 
         private void dgvKhoa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            txtMaKhoa.ReadOnly = true;
+            //txtMaKhoa.ReadOnly = true;
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvKhoa.Rows[e.RowIndex];
@@ -95,8 +97,64 @@ namespace QLMH.DangDuyHoang.Admin
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            // Kiểm tra nếu người dùng đã chọn một dòng hợp lệ
+            if (dgvKhoa.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một khoa để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            // Lấy mã khoa từ dòng đã chọn
+            var selectedRow = dgvKhoa.SelectedRows[0];
+            string maKhoa = selectedRow.Cells["MaKhoa"].Value.ToString();
+
+            
+            // Tìm khoa trong cơ sở dữ liệu
+            var khoaToEdit = dbContext.Khoas
+                                      .SingleOrDefault(k => k.MaKhoa == maKhoa);
+            if (khoaToEdit == null)
+            {
+                MessageBox.Show("Không tìm thấy khoa với mã đã chọn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Xác nhận người dùng có chắc chắn muốn sửa
+            var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn sửa thông tin khoa này không?",
+                                                "Xác nhận sửa",
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Question);
+
+            // Nếu người dùng chọn 'Yes', thực hiện sửa
+            if (confirmResult == DialogResult.Yes)
+            {
+                try
+                {
+                    // Cập nhật thông tin khoa từ các trường nhập
+                    khoaToEdit.TenKhoa = txtTenKhoa.Text.Trim();
+                    khoaToEdit.TrangThaiKhoa = txtTrangThaiKhoa.Text.Trim();
+
+                    // Lưu thay đổi vào cơ sở dữ liệu
+                    dbContext.SaveChanges();
+
+                    // Tải lại danh sách khoa
+                    LoadData();
+
+                    // Thông báo sửa thành công
+                    MessageBox.Show("Sửa khoa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtMaKhoa.ReadOnly = false;
+                    // Xóa trắng các TextBox sau khi sửa
+                    txtMaKhoa.Clear();
+                    txtTenKhoa.Clear();
+                    txtTrangThaiKhoa.Clear();
+                }
+                catch (Exception ex)
+                {
+                    // Thông báo lỗi nếu có
+                    MessageBox.Show("Đã xảy ra lỗi khi sửa khoa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -131,6 +189,14 @@ namespace QLMH.DangDuyHoang.Admin
             {
                 MessageBox.Show("Vui lòng chọn một dòng để xóa.");
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtMaKhoa.Clear();
+            txtTenKhoa.Clear();
+            txtTrangThaiKhoa.Clear();
+            txtMaKhoa.ReadOnly = false;
         }
     }
 }

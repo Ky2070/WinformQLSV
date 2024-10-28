@@ -171,8 +171,9 @@ namespace QLMH.DangDuyHoang
         private void btnThem_Click(object sender, EventArgs e)
         {
             // Kiểm tra xem các trường bắt buộc đã được điền đầy đủ hay chưa
-            if (string.IsNullOrWhiteSpace(txtMaGV.Text) || string.IsNullOrWhiteSpace(txtHoTenGV.Text) 
-                //|| string.IsNullOrWhiteSpace(txtPhai.Text)
+            if (string.IsNullOrWhiteSpace(txtMaGV.Text) 
+                || string.IsNullOrWhiteSpace(txtHoTenGV.Text) 
+                || string.IsNullOrWhiteSpace(txtPhai.Text)
                 )
             {
                 MessageBox.Show("Vui lòng điền đủ thông tin bắt buộc.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -191,7 +192,7 @@ namespace QLMH.DangDuyHoang
 
             // Kiểm tra độ tuổi của giáo viên (phải từ 18 tuổi trở lên)
             DateTime today = DateTime.Now;
-            DateTime ngaySinh = dtpNgaySinh.Value;
+            DateTime ngaySinh = dtpNgaySinh.Value.Date;
 
             if ((today.Year - ngaySinh.Year) < 18 || (today.Year - ngaySinh.Year == 18 && today < ngaySinh.AddYears(18)))
             {
@@ -225,7 +226,7 @@ namespace QLMH.DangDuyHoang
                 MaQTV = cmbMaQTV.SelectedValue.ToString(), // Giá trị từ ComboBox
                 HoTenGV = txtHoTenGV.Text,
                 Phai = txtPhai.Text,
-                NgaySinh = dtpNgaySinh.Value,
+                NgaySinh = dtpNgaySinh.Value.Date,
                 DiaChi = txtDiaChi.Text,
                 MaQTC = cmbMaQTC.SelectedValue.ToString(), // Giá trị từ ComboBox
                 MaKhoa = cmbMaKhoa.SelectedValue?.ToString() ?? "", // Giá trị từ ComboBox

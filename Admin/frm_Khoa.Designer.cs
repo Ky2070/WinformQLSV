@@ -29,6 +29,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpKhoaInfo = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoa)).BeginInit();
             this.grpKhoaInfo.SuspendLayout();
             this.SuspendLayout();
@@ -129,6 +130,7 @@
             // 
             // grpKhoaInfo
             // 
+            this.grpKhoaInfo.Controls.Add(this.btnClear);
             this.grpKhoaInfo.Controls.Add(this.lblMaKhoa);
             this.grpKhoaInfo.Controls.Add(this.txtMaKhoa);
             this.grpKhoaInfo.Controls.Add(this.lblTenKhoa);
@@ -144,6 +146,15 @@
             this.grpKhoaInfo.TabIndex = 0;
             this.grpKhoaInfo.TabStop = false;
             this.grpKhoaInfo.Text = "Thông Tin Khoa";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(472, 60);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(100, 30);
+            this.btnClear.TabIndex = 9;
+            this.btnClear.Text = "Làm mới";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // frm_Khoa
             // 
@@ -174,5 +185,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.GroupBox grpKhoaInfo;
+        private System.Windows.Forms.Button btnClear;
     }
 }
